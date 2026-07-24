@@ -1,5 +1,5 @@
 import pandas as pd
-
+from logger import logger
 
 class SalaryAnalyzer:
 
@@ -8,8 +8,9 @@ class SalaryAnalyzer:
         self.data = None
 
     def load_data(self):
-        self.data = pd.read_csv(self.file_path)
-        return self.data
+    self.data = pd.read_csv(self.file_path)
+    logger.info("Employee data loaded successfully")
+    return self.data
 
 
 if __name__ == "__main__":
