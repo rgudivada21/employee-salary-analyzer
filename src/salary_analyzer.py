@@ -8,10 +8,14 @@ class SalaryAnalyzer:
         self.data = None
 
     def load_data(self):
-    self.data = pd.read_csv(self.file_path)
-    logger.info("Employee data loaded successfully")
-    return self.data
+    try:
+        self.data = pd.read_csv(self.file_path)
+        logger.info("Employee data loaded successfully")
+        return self.data
 
+    except Exception as e:
+        logger.error(f"Error loading file: {e}")
+        print("Failed to load employee data.")
 
 if __name__ == "__main__":
     analyzer = SalaryAnalyzer("data/employees.csv")
