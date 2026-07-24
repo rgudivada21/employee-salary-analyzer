@@ -12,10 +12,16 @@ class SalaryAnalyzer:
         self.data = pd.read_csv(self.file_path)
         logger.info("Employee data loaded successfully")
         return self.data
+        
     def average_salary(self):
     avg_salary = self.data["Salary"].mean()
     logger.info(f"Average Salary: {avg_salary}")
     return avg_salary
+    
+    def highest_salary(self):
+    highest = self.data["Salary"].max()
+    logger.info(f"Highest Salary: {highest}")
+    return highest
 
     except Exception as e:
         logger.error(f"Error loading file: {e}")
@@ -26,3 +32,4 @@ if __name__ == "__main__":
     df = analyzer.load_data()
     print(df)
 print("Average Salary:", analyzer.average_salary())
+print("Highest Salary:", analyzer.highest_salary())
