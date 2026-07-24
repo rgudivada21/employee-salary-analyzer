@@ -28,6 +28,11 @@ class SalaryAnalyzer:
     logger.info(f"Lowest Salary: {lowest}")
     return lowest
 
+    def department_average_salary(self):
+    dept_avg = self.data.groupby("Department")["Salary"].mean()
+    logger.info("Calculated department-wise average salary")
+    return dept_avg
+
     except Exception as e:
         logger.error(f"Error loading file: {e}")
         print("Failed to load employee data.")
@@ -39,3 +44,5 @@ if __name__ == "__main__":
 print("Average Salary:", analyzer.average_salary())
 print("Highest Salary:", analyzer.highest_salary())
 print("Lowest Salary:", analyzer.lowest_salary())
+print("\nDepartment-wise Average Salary")
+print(analyzer.department_average_salary())
