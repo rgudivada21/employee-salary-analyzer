@@ -38,6 +38,11 @@ class SalaryAnalyzer:
     logger.info("Fetched top 5 highest paid employees")
     return top_employees
 
+    def employee_count_by_department(self):
+    count = self.data.groupby("Department").size()
+    logger.info("Calculated employee count by department")
+    return count
+
     except Exception as e:
         logger.error(f"Error loading file: {e}")
         print("Failed to load employee data.")
@@ -53,3 +58,5 @@ print("\nDepartment-wise Average Salary")
 print(analyzer.department_average_salary())
 print("\nTop 5 Highest Paid Employees")
 print(analyzer.top_5_highest_paid())
+print("\nEmployee Count by Department")
+print(analyzer.employee_count_by_department())
